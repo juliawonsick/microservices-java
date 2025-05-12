@@ -24,7 +24,7 @@ public class GreetingConfig {
 	}
 	public String getDefaultName() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.defaultName;
 	}
 	
 	
