@@ -8,28 +8,28 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.atitus.product_service.entites.ProductServiceEntity;
-import br.edu.atitus.product_service.repositories.ProductServiceRepository;
+import br.edu.atitus.product_service.entites.ProductEntity;
+import br.edu.atitus.product_service.repositories.ProductRepository;
 
 @RestController
 @RequestMapping("/products")
-public class ProductServiceController {
+public class OpenProductController {
 
-    private final ProductServiceRepository repository;
+    private final ProductRepository repository;
 
     @Value("${server.port}")
     private String port;
 
 
-    public ProductServiceController(ProductServiceRepository repository) {
+    public OpenProductController(ProductRepository repository) {
         this.repository = repository;
     }
 
     @GetMapping("/{id}/{currency}")
-    public ProductServiceEntity findProduct(@PathVariable Long id, @PathVariable String currency) {
-        Optional<ProductServiceEntity> optionalProduct = repository.findById(id);
+    public ProductEntity findProduct(@PathVariable Long id, @PathVariable String currency) {
+        Optional<ProductEntity> optionalProduct = repository.findById(id);
 
-        ProductServiceEntity product = optionalProduct.orElseThrow(() -> new RuntimeException("Product not found"));
+        ProductEntity product = optionalProduct.orElseThrow(() -> new RuntimeException("Product not found"));
         product.setConvertedPrice(product.getPrice()); 
         product.setEnvironment("PORT = " + port);
 

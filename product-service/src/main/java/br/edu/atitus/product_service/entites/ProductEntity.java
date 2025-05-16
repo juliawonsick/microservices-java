@@ -9,7 +9,7 @@ import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "tb_product")
-public class ProductServiceEntity {
+public class ProductEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
