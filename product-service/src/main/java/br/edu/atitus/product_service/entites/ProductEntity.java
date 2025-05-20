@@ -1,5 +1,6 @@
 package br.edu.atitus.product_service.entites;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,12 +19,13 @@ public class ProductEntity {
     private String description;
     private String brand;
     private String model;
+    @Column(length = 3)
     private String currency;
-    private Double price;
+    private double price;
     private Integer stock;
 
     @Transient
-    private Double convertedPrice;
+    private double convertedPrice;
 
     @Transient
     private String environment;

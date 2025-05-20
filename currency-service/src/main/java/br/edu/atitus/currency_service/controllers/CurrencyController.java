@@ -1,4 +1,4 @@
-package br.edu.atitus.currency_service.controllers;
+ package br.edu.atitus.currency_service.controllers;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
